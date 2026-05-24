@@ -103,7 +103,21 @@ header p { font-size: 11px; color: rgba(255,255,255,0.7); margin-top: 2px; }
 }
 .bldg-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
 
-.map-container { padding: 8px 0; display: flex; justify-content: center; }
+.map-area { margin: 8px 0; }
+.map-tabs {
+  display: flex; gap: 6px; justify-content: center;
+  margin-bottom: 8px;
+}
+.map-tab {
+  flex: 1; max-width: 110px; height: 38px;
+  border: 2px solid var(--border); background: var(--card); color: var(--text);
+  border-radius: 20px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.15s;
+}
+.map-tab.active {
+  background: var(--orange); color: #fff; border-color: var(--orange);
+}
+.map-container { padding: 0; display: flex; justify-content: center; }
 svg { max-width: 100%; height: auto; }
 .building-clickable { cursor: pointer; transition: opacity 0.15s; }
 .building-clickable:hover { opacity: 0.8; }
@@ -182,6 +196,12 @@ svg { max-width: 100%; height: auto; }
     <button class="bldg-btn" id="btn-other">その他</button>
   </div>
 
+  <div class="map-area">
+    <div class="map-tabs">
+      <button class="map-tab active" data-view="all">全体</button>
+      <button class="map-tab" data-view="west">西エリア</button>
+      <button class="map-tab" data-view="east">東エリア</button>
+    </div>
   <div class="map-container">
     <svg id="campus-map" viewBox="0 0 960 640" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;">
       <!-- 背景: キャンパス全体の芝色 -->
@@ -460,6 +480,7 @@ svg { max-width: 100%; height: auto; }
       <circle id="badge-CALL教室" cx="600" cy="358" r="11" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
       <text id="badge-text-CALL教室" x="600" y="362" fill="#fff" font-size="9" text-anchor="middle" font-weight="700" style="display:none"></text>
     </svg>
+  </div>
   </div>
 
   <div class="notice">
@@ -823,12 +844,33 @@ svg { max-width: 100%; height: auto; }
     });
   }
 
+  function initMapTabs() {
+    var svg = document.getElementById('campus-map');
+    // 各ビューの viewBox 定義 (重なりを少し設けて文脈確保)
+    var VIEWS = {
+      all:  '0 0 960 640',
+      west: '0 0 520 640',
+      east: '440 0 520 640'
+    };
+    document.querySelectorAll('.map-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var view = btn.dataset.view;
+        document.querySelectorAll('.map-tab').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        svg.setAttribute('viewBox', VIEWS[view] || VIEWS.all);
+      });
+    });
+  }
+
   function init() {
     initSemesterTabs();
     initDayButtons();
     initPeriodButtons();
     initBuildingButtons();
     initMapClicks();
+    initMapTabs();
 
     // 初期状態: 現在の曜日・時限を自動選択
     var current = getCurrentPeriod();
