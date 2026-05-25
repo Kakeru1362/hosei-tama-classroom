@@ -224,263 +224,154 @@ svg#campus-map {
     </div>
   <div class="map-container">
     <svg id="campus-map" viewBox="0 0 960 640" xmlns="http://www.w3.org/2000/svg">
-      <!-- 背景: キャンパス全体の芝色 -->
-      <rect x="0" y="0" width="960" height="640" fill="#E8F0DC" rx="8"/>
+      <!-- 背景 -->
+      <rect x="0" y="0" width="960" height="640" fill="#F2F6E9" rx="8"/>
 
-      <!-- 町田街道 (左端、縦) -->
-      <rect x="0" y="0" width="36" height="640" fill="#EDEDED"/>
-      <text x="18" y="320" fill="#666" font-size="11" text-anchor="middle" font-weight="600" transform="rotate(-90 18 320)">町田街道</text>
-
-      <!-- めじろ台方向マーカー (右上) -->
-      <text x="930" y="22" fill="#444" font-size="11" text-anchor="end" font-weight="700">↑ めじろ台</text>
-
-      <!-- 法政大学入口 / 大戸交差点 ラベル -->
-      <text x="60" y="455" fill="#555" font-size="9" font-weight="600">● 大戸交差点</text>
-      <text x="380" y="555" fill="#555" font-size="9" font-weight="600">法政大学入口</text>
-
-      <!-- ============= 北側 (スポーツ施設) ============= -->
-      <!-- 野球場 -->
-      <ellipse cx="125" cy="80" rx="60" ry="48" fill="#B8D898"/>
-      <text x="125" y="84" fill="#3A6F3C" font-size="11" text-anchor="middle" font-weight="700">野球場</text>
-
-      <!-- 体育棟 (15号館) -->
+      <!-- ============= 上部: 体育棟 (クリック可) + 総合体育館 (参考) ============= -->
       <g class="building-clickable" data-key="体育棟" id="bldg-体育棟">
-        <rect x="195" y="25" width="80" height="40" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="235" y="45" fill="#00205B" font-size="12" text-anchor="middle" font-weight="700">体育棟</text>
-        <text x="235" y="58" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">15号館</text>
+        <rect x="80" y="40" width="140" height="60" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="150" y="68" fill="#00205B" font-size="16" text-anchor="middle" font-weight="800">体育棟</text>
+        <text x="150" y="86" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">15号館</text>
       </g>
 
-      <!-- 陸上競技場 (トラック) -->
-      <ellipse cx="135" cy="190" rx="78" ry="42" fill="#D4A858" stroke="#9C7838" stroke-width="2"/>
-      <ellipse cx="135" cy="190" rx="50" ry="20" fill="#B8D898"/>
-      <text x="135" y="194" fill="#3A6F3C" font-size="10" text-anchor="middle" font-weight="700">陸上競技場</text>
+      <text x="305" y="60" fill="#888" font-size="11" text-anchor="middle">総合体育館</text>
+      <text x="305" y="74" fill="#AAA" font-size="9" text-anchor="middle">14号館</text>
 
-      <!-- ラグビー場 -->
-      <rect x="220" y="90" width="135" height="55" rx="4" fill="#B8D898"/>
-      <text x="287" y="123" fill="#3A6F3C" font-size="11" text-anchor="middle" font-weight="700">ラグビー場</text>
+      <!-- 百周年記念館 (参考、上部) -->
+      <text x="150" y="135" fill="#888" font-size="11" text-anchor="middle">百周年記念館</text>
+      <text x="150" y="149" fill="#AAA" font-size="9" text-anchor="middle">13号館</text>
 
-      <!-- ハンドボール場 -->
-      <rect x="220" y="150" width="135" height="36" rx="4" fill="#B8D898"/>
-      <text x="287" y="172" fill="#3A6F3C" font-size="11" text-anchor="middle" font-weight="700">ハンドボール場</text>
-
-      <!-- 総合体育館 (14号館) -->
-      <rect x="230" y="195" width="125" height="55" rx="6" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="290" y="222" fill="#666" font-size="11" text-anchor="middle" font-weight="700">総合体育館</text>
-      <text x="290" y="237" fill="#888" font-size="8" text-anchor="middle">14号館</text>
-
-      <!-- グランド門守衛所 -->
-      <circle cx="36" cy="230" r="4" fill="#555"/>
-      <text x="44" y="234" fill="#555" font-size="9" font-weight="600">グランド門守衛所</text>
-
-      <!-- ホッケー場・テニスコート (細長く左下) -->
-      <rect x="222" y="260" width="62" height="22" rx="2" fill="#B8D898"/>
-      <text x="253" y="275" fill="#3A6F3C" font-size="8" text-anchor="middle" font-weight="700">ホッケー場</text>
-      <rect x="288" y="260" width="62" height="22" rx="2" fill="#D4A858"/>
-      <text x="319" y="275" fill="#5C4828" font-size="8" text-anchor="middle" font-weight="700">テニスコート</text>
-
-      <!-- 百周年記念館 (13号館) -->
-      <rect x="230" y="290" width="125" height="35" rx="6" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="290" y="306" fill="#666" font-size="10" text-anchor="middle" font-weight="700">百周年記念館</text>
-      <text x="290" y="319" fill="#888" font-size="8" text-anchor="middle">13号館</text>
-
-      <!-- ============= 中央左: 経済学部 cluster (位置調整) ============= -->
-      <g class="building-clickable" data-key="経済学部棟" id="bldg-経済学部棟">
-        <!-- 経済学部A棟 (8号館) -->
-        <rect x="380" y="220" width="75" height="55" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="418" y="246" fill="#00205B" font-size="12" text-anchor="middle" font-weight="700">経済A棟</text>
-        <text x="418" y="260" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">8号館</text>
-
-        <!-- 経済学部C棟 (10号館) -->
-        <rect x="463" y="220" width="55" height="55" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="490" y="246" fill="#00205B" font-size="11" text-anchor="middle" font-weight="700">経済C</text>
-        <text x="490" y="260" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">10号館</text>
-
-        <!-- 経済学部B棟 (9号館) -->
-        <rect x="380" y="285" width="138" height="45" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="449" y="308" fill="#00205B" font-size="12" text-anchor="middle" font-weight="700">経済学部B棟</text>
-        <text x="449" y="322" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">9号館</text>
-      </g>
-
-      <!-- 食堂B棟 (11号館) -->
-      <rect x="390" y="340" width="120" height="32" rx="6" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="450" y="358" fill="#666" font-size="10" text-anchor="middle" font-weight="700">食堂B棟</text>
-      <text x="450" y="368" fill="#888" font-size="8" text-anchor="middle">11号館</text>
-
-      <!-- ============= 中央上: 研究・実験棟 (12号館) ============= -->
+      <!-- ============= 上中央: 研究・実験棟 (クリック可) ============= -->
       <g class="building-clickable" data-key="研究実験棟" id="bldg-研究実験棟">
-        <rect x="540" y="155" width="180" height="42" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="630" y="178" fill="#00205B" font-size="13" text-anchor="middle" font-weight="700">研究・実験棟</text>
-        <text x="630" y="191" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">12号館</text>
+        <rect x="480" y="125" width="270" height="60" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="615" y="155" fill="#00205B" font-size="17" text-anchor="middle" font-weight="800">研究・実験棟</text>
+        <text x="615" y="173" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">12号館</text>
       </g>
 
-      <!-- 法政大橋 (橋ラベル) -->
-      <rect x="540" y="205" width="190" height="6" fill="#E0E0E0" stroke="#AAA" stroke-width="0.5"/>
-      <text x="635" y="202" fill="#555" font-size="9" text-anchor="middle" font-weight="600">法政大橋</text>
+      <!-- ============= 中段: 経済学部 cluster (3棟まとめてクリック可) ============= -->
+      <g class="building-clickable" data-key="経済学部棟" id="bldg-経済学部棟">
+        <!-- 経済A棟 -->
+        <rect x="100" y="220" width="160" height="75" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="180" y="252" fill="#00205B" font-size="15" text-anchor="middle" font-weight="800">経済A棟</text>
+        <text x="180" y="272" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">8号館</text>
 
-      <!-- ============= 中央: 総合棟 (1) + 大教室A棟 (2) + 図書館 (3) ============= -->
+        <!-- 経済C棟 -->
+        <rect x="275" y="220" width="135" height="75" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="342" y="252" fill="#00205B" font-size="15" text-anchor="middle" font-weight="800">経済C棟</text>
+        <text x="342" y="272" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">10号館</text>
+
+        <!-- 経済B棟 -->
+        <rect x="100" y="305" width="310" height="65" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="255" y="335" fill="#00205B" font-size="16" text-anchor="middle" font-weight="800">経済学部B棟</text>
+        <text x="255" y="354" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">9号館</text>
+      </g>
+
+      <!-- 食堂B棟 (参考) -->
+      <text x="255" y="395" fill="#888" font-size="11" text-anchor="middle">食堂B棟</text>
+      <text x="255" y="409" fill="#AAA" font-size="9" text-anchor="middle">11号館</text>
+
+      <!-- ============= 中央: 総合棟 (クリック可・最大) ============= -->
       <g class="building-clickable" data-key="総合棟" id="bldg-総合棟">
-        <rect x="540" y="220" width="90" height="65" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="585" y="255" fill="#00205B" font-size="14" text-anchor="middle" font-weight="800">総合棟</text>
-        <text x="585" y="271" fill="#00205B" font-size="9" text-anchor="middle" opacity="0.7">1号館</text>
+        <rect x="480" y="220" width="180" height="100" rx="10" fill="#F4A442" stroke="#00205B" stroke-width="3"/>
+        <text x="570" y="265" fill="#00205B" font-size="22" text-anchor="middle" font-weight="800">総合棟</text>
+        <text x="570" y="290" fill="#00205B" font-size="12" text-anchor="middle" opacity="0.7">1号館</text>
       </g>
 
-      <!-- 大教室A棟 (2号館) -->
-      <rect x="540" y="295" width="90" height="55" rx="6" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="585" y="320" fill="#666" font-size="11" text-anchor="middle" font-weight="700">大教室A棟</text>
-      <text x="585" y="334" fill="#888" font-size="8" text-anchor="middle">2号館</text>
+      <!-- 大教室A棟 (参考、総合棟の下) -->
+      <rect x="480" y="335" width="180" height="50" rx="6" fill="#EFEFEF" stroke="#BBB" stroke-width="1"/>
+      <text x="570" y="360" fill="#777" font-size="13" text-anchor="middle" font-weight="600">大教室A棟</text>
+      <text x="570" y="375" fill="#999" font-size="9" text-anchor="middle">2号館</text>
 
-      <!-- 図書館・研究所棟 (3号館) -->
-      <rect x="640" y="220" width="80" height="55" rx="6" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="680" y="244" fill="#666" font-size="10" text-anchor="middle" font-weight="700">図書館</text>
-      <text x="680" y="257" fill="#666" font-size="9" text-anchor="middle">研究所棟</text>
-      <text x="680" y="270" fill="#888" font-size="8" text-anchor="middle">3号館</text>
+      <!-- 図書館・研究所棟 (参考、総合棟の右) -->
+      <rect x="680" y="220" width="130" height="100" rx="6" fill="#EFEFEF" stroke="#BBB" stroke-width="1"/>
+      <text x="745" y="260" fill="#777" font-size="13" text-anchor="middle" font-weight="600">図書館</text>
+      <text x="745" y="278" fill="#777" font-size="11" text-anchor="middle" font-weight="600">研究所棟</text>
+      <text x="745" y="295" fill="#999" font-size="9" text-anchor="middle">3号館</text>
 
-      <!-- 法政Vブリッジ -->
-      <rect x="520" y="290" width="22" height="5" fill="#E0E0E0"/>
-      <text x="531" y="287" fill="#555" font-size="8" text-anchor="middle">V橋</text>
-
-      <!-- ============= 中央下: 情報実習室 / CALL教室 (総合棟付随) ============= -->
+      <!-- ============= 総合棟内サブ: 情報実習室 / CALL教室 (クリック可) ============= -->
       <g class="building-clickable" data-key="情報実習室" id="bldg-情報実習室">
-        <rect x="540" y="358" width="44" height="32" rx="4" fill="#F4A442" stroke="#00205B" stroke-width="1.5"/>
-        <text x="562" y="372" fill="#00205B" font-size="8" text-anchor="middle" font-weight="700">情報</text>
-        <text x="562" y="383" fill="#00205B" font-size="8" text-anchor="middle" font-weight="700">実習室</text>
+        <rect x="480" y="400" width="85" height="50" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
+        <text x="522" y="425" fill="#00205B" font-size="12" text-anchor="middle" font-weight="700">情報実習</text>
+        <text x="522" y="440" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">室</text>
       </g>
 
       <g class="building-clickable" data-key="CALL教室" id="bldg-CALL教室">
-        <rect x="588" y="358" width="42" height="32" rx="4" fill="#F4A442" stroke="#00205B" stroke-width="1.5"/>
-        <text x="609" y="378" fill="#00205B" font-size="9" text-anchor="middle" font-weight="700">CALL</text>
+        <rect x="575" y="400" width="85" height="50" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
+        <text x="617" y="432" fill="#00205B" font-size="14" text-anchor="middle" font-weight="700">CALL教室</text>
       </g>
 
-      <!-- ============= 右側: 食堂A / 社会学部 / ひだまり広場 ============= -->
-      <!-- 食堂A (6号館) -->
-      <rect x="735" y="218" width="85" height="32" rx="6" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="778" y="234" fill="#666" font-size="10" text-anchor="middle" font-weight="700">食堂A</text>
-      <text x="778" y="246" fill="#888" font-size="8" text-anchor="middle">6号館</text>
+      <!-- ============= 右側: 食堂A (参考) + 社会学部 (クリック可) + ひだまり広場 ============= -->
+      <rect x="820" y="220" width="120" height="45" rx="6" fill="#EFEFEF" stroke="#BBB" stroke-width="1"/>
+      <text x="880" y="240" fill="#777" font-size="12" text-anchor="middle" font-weight="600">食堂A</text>
+      <text x="880" y="256" fill="#999" font-size="9" text-anchor="middle">6号館</text>
 
-      <!-- 社会学部A棟 (4号館) + B棟 (5号館) -->
       <g class="building-clickable" data-key="社会学部棟" id="bldg-社会学部棟">
-        <rect x="735" y="258" width="85" height="38" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="778" y="278" fill="#00205B" font-size="11" text-anchor="middle" font-weight="700">社会学部A</text>
-        <text x="778" y="290" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">4号館</text>
+        <rect x="820" y="275" width="120" height="55" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="880" y="300" fill="#00205B" font-size="14" text-anchor="middle" font-weight="800">社会学部A</text>
+        <text x="880" y="317" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">4号館</text>
 
-        <rect x="735" y="303" width="85" height="38" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="778" y="323" fill="#00205B" font-size="11" text-anchor="middle" font-weight="700">社会学部B</text>
-        <text x="778" y="335" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">5号館</text>
+        <rect x="820" y="340" width="120" height="55" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="880" y="365" fill="#00205B" font-size="14" text-anchor="middle" font-weight="800">社会学部B</text>
+        <text x="880" y="382" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">5号館</text>
       </g>
 
-      <!-- ひだまり広場 -->
-      <rect x="735" y="348" width="85" height="40" rx="6" fill="#A8DCD0" stroke="#5CA89A" stroke-width="1.5"/>
-      <text x="778" y="372" fill="#1F6657" font-size="10" text-anchor="middle" font-weight="700">ひだまり広場</text>
+      <!-- ひだまり広場 (小ランドマーク) -->
+      <rect x="820" y="405" width="120" height="40" rx="6" fill="#B8E5DD" stroke="#5CA89A" stroke-width="1"/>
+      <text x="880" y="430" fill="#1F6657" font-size="12" text-anchor="middle" font-weight="700">ひだまり広場</text>
 
-      <!-- 大教室B棟 (7号館) -->
+      <!-- ============= 下段: 大教室B + 現代福祉 (クリック可) ============= -->
       <g class="building-clickable" data-key="大教室B棟" id="bldg-大教室B棟">
-        <rect x="645" y="395" width="78" height="45" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="684" y="418" fill="#00205B" font-size="12" text-anchor="middle" font-weight="700">大教室B</text>
-        <text x="684" y="431" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">7号館</text>
+        <rect x="680" y="475" width="130" height="70" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="745" y="510" fill="#00205B" font-size="16" text-anchor="middle" font-weight="800">大教室B</text>
+        <text x="745" y="528" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">7号館</text>
       </g>
 
-      <!-- 現代福祉学部棟 (17号館) -->
       <g class="building-clickable" data-key="現代福祉学部棟" id="bldg-現代福祉学部棟">
-        <rect x="800" y="395" width="108" height="48" rx="6" fill="#F4A442" stroke="#00205B" stroke-width="2"/>
-        <text x="854" y="418" fill="#00205B" font-size="11" text-anchor="middle" font-weight="700">現代福祉学部</text>
-        <text x="854" y="431" fill="#00205B" font-size="8" text-anchor="middle" opacity="0.7">17号館</text>
+        <rect x="820" y="475" width="130" height="70" rx="8" fill="#F4A442" stroke="#00205B" stroke-width="2.5"/>
+        <text x="885" y="510" fill="#00205B" font-size="14" text-anchor="middle" font-weight="800">現代福祉</text>
+        <text x="885" y="528" fill="#00205B" font-size="10" text-anchor="middle" opacity="0.7">17号館</text>
       </g>
 
-      <!-- ============= 中央下: 正門ゲートエリア ============= -->
-      <!-- コンビニ -->
-      <rect x="490" y="400" width="42" height="22" rx="3" fill="#E0D8B0" stroke="#A89D4F" stroke-width="1"/>
-      <text x="511" y="414" fill="#5C4828" font-size="8" text-anchor="middle" font-weight="700">コンビニ</text>
+      <!-- ============= 最下段: EGG DOME + スポーツ健康学部 (参考) ============= -->
+      <rect x="480" y="570" width="180" height="45" rx="20" fill="#EFEFEF" stroke="#BBB" stroke-width="1"/>
+      <text x="570" y="592" fill="#777" font-size="12" text-anchor="middle" font-weight="600">EGG DOME</text>
+      <text x="570" y="606" fill="#999" font-size="9" text-anchor="middle">16号館</text>
 
-      <!-- 正門守衛所 -->
-      <circle cx="540" cy="438" r="5" fill="#555"/>
-      <text x="550" y="442" fill="#555" font-size="9" font-weight="600">正門守衛所</text>
+      <rect x="820" y="570" width="130" height="45" rx="6" fill="#EFEFEF" stroke="#BBB" stroke-width="1"/>
+      <text x="885" y="590" fill="#777" font-size="11" text-anchor="middle" font-weight="600">スポーツ健康</text>
+      <text x="885" y="606" fill="#999" font-size="9" text-anchor="middle">18号館</text>
 
-      <!-- 駐輪場 -->
-      <rect x="480" y="450" width="65" height="22" rx="3" fill="#E0D8B0" stroke="#A89D4F" stroke-width="1"/>
-      <text x="512" y="464" fill="#5C4828" font-size="8" text-anchor="middle" font-weight="700">駐輪場</text>
+      <!-- 方角ガイド -->
+      <text x="930" y="30" fill="#888" font-size="10" text-anchor="end" font-weight="600">↑ N (めじろ台方面)</text>
 
-      <!-- EGG DOME (16号館) -->
-      <rect x="555" y="455" width="100" height="42" rx="20" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="605" y="475" fill="#666" font-size="11" text-anchor="middle" font-weight="700">EGG DOME</text>
-      <text x="605" y="488" fill="#888" font-size="8" text-anchor="middle">16号館</text>
+      <!-- ============= バッジ（空き教室数） ============= -->
+      <circle id="badge-総合棟" cx="660" cy="220" r="16" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-総合棟" x="660" y="226" fill="#fff" font-size="13" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- 民間駐車場 -->
-      <rect x="470" y="480" width="80" height="22" rx="3" fill="#D0D0D0" stroke="#999" stroke-width="1"/>
-      <text x="510" y="494" fill="#666" font-size="8" text-anchor="middle" font-weight="600">民間駐車場</text>
+      <circle id="badge-社会学部棟" cx="940" cy="275" r="16" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-社会学部棟" x="940" y="281" fill="#fff" font-size="13" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- バスターミナル -->
-      <rect x="555" y="505" width="100" height="22" rx="3" fill="#A8D0E0" stroke="#5C7C8C" stroke-width="1"/>
-      <text x="605" y="519" fill="#1C3848" font-size="9" text-anchor="middle" font-weight="700">バスターミナル</text>
+      <circle id="badge-大教室B棟" cx="810" cy="475" r="16" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-大教室B棟" x="810" y="481" fill="#fff" font-size="13" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- 法政トンネル -->
-      <rect x="610" y="533" width="105" height="22" rx="3" fill="#A8D0E0" stroke="#5C7C8C" stroke-width="1"/>
-      <text x="662" y="547" fill="#1C3848" font-size="9" text-anchor="middle" font-weight="700">法政トンネル</text>
+      <circle id="badge-経済学部棟" cx="410" cy="220" r="16" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-経済学部棟" x="410" y="226" fill="#fff" font-size="13" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- ============= 右下: スポーツ施設 + ⑱ ============= -->
-      <!-- ボールコート -->
-      <rect x="830" y="450" width="100" height="40" rx="3" fill="#D4A858" stroke="#9C7838" stroke-width="1"/>
-      <text x="880" y="473" fill="#5C4828" font-size="10" text-anchor="middle" font-weight="700">ボールコート</text>
+      <circle id="badge-研究実験棟" cx="750" cy="125" r="16" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-研究実験棟" x="750" y="131" fill="#fff" font-size="13" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- 守衛所 (南) -->
-      <circle cx="855" cy="503" r="4" fill="#555"/>
-      <text x="864" y="506" fill="#555" font-size="8" font-weight="600">守衛所</text>
+      <circle id="badge-現代福祉学部棟" cx="950" cy="475" r="16" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-現代福祉学部棟" x="950" y="481" fill="#fff" font-size="13" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- スポーツ健康学部棟 (18号館) -->
-      <rect x="830" y="520" width="100" height="35" rx="6" fill="#D8D8D8" stroke="#999" stroke-width="1"/>
-      <text x="880" y="536" fill="#666" font-size="10" text-anchor="middle" font-weight="700">スポーツ健康</text>
-      <text x="880" y="548" fill="#888" font-size="8" text-anchor="middle">18号館</text>
+      <circle id="badge-体育棟" cx="220" cy="40" r="14" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-体育棟" x="220" y="46" fill="#fff" font-size="11" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- テニスコート (右) -->
-      <rect x="830" y="568" width="100" height="22" rx="2" fill="#D4A858"/>
-      <text x="880" y="582" fill="#5C4828" font-size="9" text-anchor="middle" font-weight="700">テニスコート</text>
+      <circle id="badge-情報実習室" cx="565" cy="400" r="13" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-情報実習室" x="565" y="405" fill="#fff" font-size="10" text-anchor="middle" font-weight="700" style="display:none"></text>
 
-      <!-- フットサルコート -->
-      <rect x="830" y="595" width="100" height="28" rx="2" fill="#B8D898"/>
-      <text x="880" y="613" fill="#3A6F3C" font-size="9" text-anchor="middle" font-weight="700">フットサルコート</text>
-
-      <!-- ============= 左下: スポーツ施設 + 城山 (間隔広げて分離) ============= -->
-      <!-- 多目的グラウンド -->
-      <rect x="55" y="555" width="130" height="55" rx="4" fill="#B8D898"/>
-      <text x="120" y="586" fill="#3A6F3C" font-size="10" text-anchor="middle" font-weight="700">多目的グラウンド</text>
-
-      <!-- サッカー場 -->
-      <rect x="210" y="555" width="120" height="55" rx="4" fill="#98C078"/>
-      <text x="270" y="586" fill="#284828" font-size="11" text-anchor="middle" font-weight="700">サッカー場</text>
-
-      <!-- 馬場 -->
-      <rect x="355" y="555" width="80" height="55" rx="3" fill="#D4A858"/>
-      <text x="395" y="586" fill="#5C4828" font-size="10" text-anchor="middle" font-weight="700">馬場</text>
-
-      <!-- 城山校地 -->
-      <text x="50" y="630" fill="#555" font-size="10" font-weight="600">城山校地</text>
-
-      <!-- ============= バッジ（空き教室数） ※建物移動に合わせて位置更新 ============= -->
-      <circle id="badge-総合棟" cx="630" cy="220" r="14" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-総合棟" x="630" y="225" fill="#fff" font-size="11" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-社会学部棟" cx="820" cy="258" r="14" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-社会学部棟" x="820" y="263" fill="#fff" font-size="11" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-大教室B棟" cx="723" cy="395" r="14" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-大教室B棟" x="723" y="400" fill="#fff" font-size="11" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-経済学部棟" cx="518" cy="220" r="14" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-経済学部棟" x="518" y="225" fill="#fff" font-size="11" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-研究実験棟" cx="720" cy="155" r="14" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-研究実験棟" x="720" y="160" fill="#fff" font-size="11" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-現代福祉学部棟" cx="908" cy="395" r="14" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-現代福祉学部棟" x="908" y="400" fill="#fff" font-size="11" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-体育棟" cx="275" cy="25" r="13" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-体育棟" x="275" y="30" fill="#fff" font-size="10" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-情報実習室" cx="584" cy="358" r="11" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-情報実習室" x="584" y="362" fill="#fff" font-size="9" text-anchor="middle" font-weight="700" style="display:none"></text>
-
-      <circle id="badge-CALL教室" cx="630" cy="358" r="11" fill="#FF6600" stroke="#fff" stroke-width="2" style="display:none"/>
-      <text id="badge-text-CALL教室" x="630" y="362" fill="#fff" font-size="9" text-anchor="middle" font-weight="700" style="display:none"></text>
+      <circle id="badge-CALL教室" cx="660" cy="400" r="13" fill="#FF6600" stroke="#fff" stroke-width="2.5" style="display:none"/>
+      <text id="badge-text-CALL教室" x="660" y="405" fill="#fff" font-size="10" text-anchor="middle" font-weight="700" style="display:none"></text>
+    
     </svg>
   </div>
   </div>
